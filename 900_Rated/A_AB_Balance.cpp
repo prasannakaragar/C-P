@@ -9,4 +9,4 @@ int main(){
         s[0] = s.back();  
         cout << s << "\n";
     }
-}
+}  
