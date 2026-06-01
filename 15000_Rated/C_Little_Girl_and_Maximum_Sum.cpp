@@ -1,37 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+#define endl '\n'   
+
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-   int n,q;
-   cin>>n>>q;
-   vector<long long>vec(n,0);
-   vector<long long>pos(n,0);
-   vector<long long>ans(n,0);
-   for(int i=0;i<n;i++){
-     cin>>vec[i];
-   }
-   while(q--){
-    int l,r;
-    cin>>l>>r;
-    l--,r--;
-    if(r<n-1){
-      pos[l]++,pos[r+1]--;
-    }else{
-        pos[l]++;
+        int n,q;
+        cin>>n>>q;
+        vector<int>v(n,0);
+        for(int &x:v) cin>>x;
+        vector<int>pref(n,0);
+        while(q--){
+            int l,r;
+            cin>>l>>r;
+            l--,r--;
+            pref[l]+=1;
+          if(r+1<n){
+            pref[r+1]-=1;
+          }
+        }
+        for(int i=1;i<n;i++){
+          pref[i]+=pref[i-1];
+        }
+    sort(v.begin(),v.end(),greater<int>());
+    sort(pref.begin(),pref.end(),greater<int>());
+      long long sum = 0;
+    for(int i = 0; i < n; i++){
+      sum += 1LL * v[i] * pref[i];
     }
+      cout<<sum<<endl;
     
-   }
-   ans[0]=pos[0];
-   for(int i=1;i<n;i++){
-      ans[i]=(pos[i]+ans[i-1]);
-   }
-   sort(vec.begin(),vec.end());
-   sort(ans.begin(),ans.end());
-   long long sum=0;
-   for(int i=n-1;i>=0;i--){
-    sum+=(vec[i]*ans[i]);
-   }
-   cout<<sum<<"\n";
     return 0;
 }
