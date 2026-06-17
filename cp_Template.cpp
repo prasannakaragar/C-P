@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define endl '\n'   
+#define endl '\n'  
 
 int main(){
     ios::sync_with_stdio(false);
@@ -9,9 +9,8 @@ int main(){
     int t;
     cin >> t;
     while(t--){
+     
         
     }
-    
-
     return 0;
 }
