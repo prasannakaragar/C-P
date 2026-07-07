@@ -17,7 +17,7 @@ int main() {
 
         for (auto &x : a) cin >> x;
         for (auto &x : b) cin >> x;
-
+        
         vector<pair<int,int>> vec;
 
         for (int i = 0; i < n; i++) {
@@ -28,7 +28,7 @@ int main() {
             return x.second < y.second;
         });
 
-        long long ans = p;   
+        long long ans = p;  
         int informed = 1;    
 
         for (int i = 0; i < n && informed < n; i++) {
